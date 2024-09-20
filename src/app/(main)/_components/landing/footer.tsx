@@ -72,7 +72,7 @@ export function Footer() {
           </p>
           <div className="flex items-center">
             <span className="text-sm text-gray-400 mr-2">Powered by </span>
-            <Image src="/logo-pitanga.png" alt="Pitanga Studio Logo" width={100} height={30} />
+            <Image src="/logoBranco.png" alt="Pitanga Studio Logo" width={100} height={30} />
           </div>
         </div>
       </div>
