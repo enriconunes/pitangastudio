@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Menu, X } from 'lucide-react'
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
+import { ModeToggle } from '@/components/shacnui/mode-toggle'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,8 +23,8 @@ export default function Header() {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black shadow-md' : 'bg-black'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg ${
+        scrolled ? 'bg-black/30 shadow-md' : 'bg-black'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -46,11 +48,12 @@ export default function Header() {
               Sobre Nós
               <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-[#ed6c08] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
-            <Button 
-              className="bg-transparent text-white border-2 border-[#ed6c08] hover:border-[#f28c01] hover:text-[#f28c01] font-bold rounded transition-colors duration-300"
-            >
-              Contato
-            </Button>
+            <button className="p-[3px] relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg" />
+              <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+                Contato
+              </div>
+            </button>          
           </div>
           <div className="md:hidden">
             <Button variant="ghost" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
